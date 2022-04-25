@@ -23,3 +23,5 @@
 2. Скопировать код из [`MainWindow.xaml`](./MainWindow.xaml), заменив `Lab_11` на `Name`
 
 3. Скопировать код из [`MainWindow.xaml.cs`](./MainWindow.xaml.cs), заменив `Lab_11` на `Name`
+
+4. Создать класс [`Class1.cs`](./Class1.cs), скопировать код и заменить `Lab_11` на `Name`

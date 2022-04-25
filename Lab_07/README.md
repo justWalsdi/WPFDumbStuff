@@ -26,7 +26,9 @@
 
 3. Скопировать код из [`MainWindow.xaml.cs`](./MainWindow.xaml.cs), заменив `Lab_07` на `Name`
 
-4. Здесь понадобится получить строки:
+4. Создать класс [`CsvData.cs`](./CsvData.cs), скопировать код и заменить `Lab_07` на `Name`
+
+5. Здесь понадобится получить строки:
    
    1. `datasoruce` (YOUR-PC-NAME\SQLEXPRESS),
    
