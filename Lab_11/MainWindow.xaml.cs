@@ -7,19 +7,6 @@ using System.Windows;
 using System.IO;
 using Microsoft.Office.Interop.Word;
 
-//To add references
-
-//    In Solution Explorer, right-click your project's name and then click Add Reference. The Add Reference dialog box appears.
-
-//    On the Assemblies page, select Microsoft.Office.Interop.Word in the Component Name list, and
-//    then hold down the CTRL key and select Microsoft.Office.Interop.Excel.
-//    If you do not see the assemblies, you may need to ensure they are installed and displayed.
-
-//    Click OK.
-
-
-
-
 
 namespace Lab_11
 {
