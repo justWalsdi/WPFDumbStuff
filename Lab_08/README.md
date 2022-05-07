@@ -2,7 +2,7 @@
 
 ## Требования
 
-* `MS SQL Express 2019`
+- `MS SQL Express 2019`
 - `SQL Server Managment Studio`
 - Файл [Plan1.txt](./../Resources/Plan1.txt)
 
