@@ -15,7 +15,7 @@
             <ComboBoxItem Content="П4" HorizontalAlignment="Left"/>
             <ComboBoxItem Content="П5" HorizontalAlignment="Left"/>
         </ComboBox>
-        <Button Content="Матрица сырье-продукт" Click="Matrix" HorizontalAlignment="Left" Margin="381,38,0,0" VerticalAlignment="Top" Width="164"/>
+        <Button Content="Матрица сырье-продукт" Click="matrix" HorizontalAlignment="Left" Margin="381,38,0,0" VerticalAlignment="Top" Width="164"/>
         <DataGrid x:Name="dgTable"  HorizontalAlignment="Left" Height="281" Margin="94,78,0,0" VerticalAlignment="Top" Width="484"/>
     </Grid>
 </Window>

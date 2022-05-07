@@ -10,14 +10,10 @@ namespace Lab_01
     /// </summary>
     public partial class MainWindow : Window
     {
-        String FileName;
-
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
         private void OpenRecept(object sender, RoutedEventArgs e)
         {
+            string FileName = "";
             switch (cmbSort.Text)
             {
                 case "П1":
@@ -38,16 +34,14 @@ namespace Lab_01
                 default:
                     MessageBox.Show("Такого сорта нет");
                     break;
-            }
-            string[] RecArray = new string[20];
+            }  
+
             List<Recept> sostav = new List<Recept>();
 
             using (StreamReader sr = new StreamReader(FileName))
-            {
-
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
+                    string[] RecArray = sr.ReadLine().Split(',');
                     try
                     {
                         sostav.Add(new Recept() { NameSyrie = RecArray[0], Rashod = Convert.ToDouble(RecArray[1]) });
@@ -57,16 +51,14 @@ namespace Lab_01
                         MessageBox.Show("Ошибка чтения файла. Ошибка: " + exception);
                     }
                 }
-                dgTable.ItemsSource = sostav;
-            }
+            dgTable.ItemsSource = sostav;
         } 
 
-        private void Matrix(object sender, RoutedEventArgs e)
+        private void matrix(object sender, RoutedEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             ////читаем содержание файла
             string FileName = @"D:\Projects\visualstudio_source\Resources\prod1.txt";
-            string[] RecArray;
             string[] Srie = new string[100];
             double[] Rshd = new double[100];
             int KolRec = 0;
@@ -77,48 +69,36 @@ namespace Lab_01
             List<Recept> recept = new List<Recept>();
 
             using (StreamReader sr = new StreamReader(FileName))
-            {
-                int i = 0;
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
-                    Srie[i] = RecArray[0];
-                    Rshd[i] = Double.Parse(RecArray[1]);
-                    Syrie[i] = Srie[i];
-                    Rashod[i, 0] = Rshd[i];
-                    recept.Add(new Recept() { NameSyrie = Srie[i], Rashod = Rshd[i] });
-                    i++;
-
-                    KolRec = i;
+                    string[] RecArray = sr.ReadLine().Split(',');
+                    Srie[KolRec] = RecArray[0];
+                    Rshd[KolRec] = Double.Parse(RecArray[1]);
+                    Syrie[KolRec] = Srie[KolRec];
+                    Rashod[KolRec, 0] = Rshd[KolRec];
+                    recept.Add(new Recept() { NameSyrie = Srie[KolRec], Rashod = Rshd[KolRec] });
+                    KolRec++;
                 }
-            }
             dgTable.ItemsSource = recept;
-
             MessageBox.Show("Выполнен первый этап");
 
             int KolRec1 = 0;
             List<Recept> recept1 = new List<Recept>();
             FileName = @"D:\Projects\visualstudio_source\Resources\prod2.txt";
             using (StreamReader sr = new StreamReader(FileName))
-            {
-                int i = 0;
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
-                    Srie[i] = RecArray[0];
-                    Rshd[i] = Double.Parse(RecArray[1]);
-                    recept1.Add(new Recept() { NameSyrie = Srie[i], Rashod = Rshd[i] });
-                    i++;
-
-                    KolRec1 = i;
+                    string[] RecArray = sr.ReadLine().Split(',');
+                    Srie[KolRec1] = RecArray[0];
+                    Rshd[KolRec1] = Double.Parse(RecArray[1]);
+                    recept1.Add(new Recept() { NameSyrie = Srie[KolRec1], Rashod = Rshd[KolRec1] });
+                    KolRec1++;
                 }
-            }
 
             dgTable.ItemsSource = recept1;
             int KolNew = 0;
             for (int i = 0; i < KolRec1; i++)
             {
-
                 int priznak = 0;
                 for (int j = 0; j < KolRec; j++)
                 {
@@ -141,19 +121,14 @@ namespace Lab_01
             List<Recept> recept2 = new List<Recept>();
             FileName = @"D:\Projects\visualstudio_source\Resources\prod3.txt";
             using (StreamReader sr = new StreamReader(FileName))
-            {
-                int i = 0;
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
-                    Srie[i] = RecArray[0];
-                    Rshd[i] = Double.Parse(RecArray[1]);
-                    recept2.Add(new Recept() { NameSyrie = Srie[i], Rashod = Rshd[i] });
-                    i++;
-
-                    KolRec2 = i;
+                    string[] RecArray = sr.ReadLine().Split(',');
+                    Srie[KolRec2] = RecArray[0];
+                    Rshd[KolRec2] = Double.Parse(RecArray[1]);
+                    recept2.Add(new Recept() { NameSyrie = Srie[KolRec2], Rashod = Rshd[KolRec2] });
+                    KolRec2++;
                 }
-            }
 
             dgTable.ItemsSource = recept2;
 
@@ -182,19 +157,14 @@ namespace Lab_01
             List<Recept> recept3 = new List<Recept>();
             FileName = @"D:\Projects\visualstudio_source\Resources\prod4.txt";
             using (StreamReader sr = new StreamReader(FileName))
-            {
-                int i = 0;
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
-                    Srie[i] = RecArray[0];
-                    Rshd[i] = Double.Parse(RecArray[1]);
-                    recept3.Add(new Recept() { NameSyrie = Srie[i], Rashod = Rshd[i] });
-                    i++;
-
-                    KolRec3 = i;
+                    string[] RecArray = sr.ReadLine().Split(',');
+                    Srie[KolRec3] = RecArray[0];
+                    Rshd[KolRec3] = Double.Parse(RecArray[1]);
+                    recept3.Add(new Recept() { NameSyrie = Srie[KolRec3], Rashod = Rshd[KolRec3] });
+                    KolRec3++;
                 }
-            }
 
             dgTable.ItemsSource = recept3;
 
@@ -223,19 +193,14 @@ namespace Lab_01
             List<Recept> recept4 = new List<Recept>();
             FileName = @"D:\Projects\visualstudio_source\Resources\prod5.txt";
             using (StreamReader sr = new StreamReader(FileName))
-            {
-                int i = 0;
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
-                    Srie[i] = RecArray[0];
-                    Rshd[i] = Double.Parse(RecArray[1]);
-                    recept4.Add(new Recept() { NameSyrie = Srie[i], Rashod = Rshd[i] });
-                    i++;
-
-                    KolRec4 = i;
+                    string[] RecArray = sr.ReadLine().Split(',');
+                    Srie[KolRec4] = RecArray[0];
+                    Rshd[KolRec4] = Double.Parse(RecArray[1]);
+                    recept4.Add(new Recept() { NameSyrie = Srie[KolRec4], Rashod = Rshd[KolRec4] });
+                    KolRec4++;
                 }
-            }
 
             dgTable.ItemsSource = recept4;
 
@@ -260,8 +225,6 @@ namespace Lab_01
             }
             MessageBox.Show("Выполнен пятый этап");
 
-
-
             // добавление в файл
             using (StreamWriter writer = new StreamWriter(@"D:\Projects\visualstudio_source\Resources\ProdRecept.txt"))
             {
@@ -269,25 +232,18 @@ namespace Lab_01
                     writer.WriteLine(Syrie[i] + "," + Rashod[i, 0] + "," + Rashod[i, 1] + "," + Rashod[i, 2] + "," + Rashod[i, 3] + "," + Rashod[i, 4]);
             }
 
-
             MessageBox.Show("Выполнено");
 
             //чтение матрицы
             List<Matrix> matr = new List<Matrix>();
 
             using (StreamReader sr = new StreamReader(@"D:\Projects\visualstudio_source\Resources\ProdRecept.txt"))
-            {
-
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
+                    string[] RecArray = sr.ReadLine().Split(',');
                     matr.Add(new Matrix() { NameSyrie = RecArray[0], Rashod1 = RecArray[1], Rashod2 = RecArray[2], Rashod3 = RecArray[3], Rashod4 = RecArray[4], Rashod5 = RecArray[5] });
                 }
-                dgTable.ItemsSource = matr;
-            }
-
-
+            dgTable.ItemsSource = matr;
         }
-
     }
 }
