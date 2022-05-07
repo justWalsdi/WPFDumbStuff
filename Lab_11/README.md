@@ -6,7 +6,7 @@
 
 - `Visual Studio 2022 Community Edition`
 
-- `Word API`
+- `Word API`, потребуется подключение его отдельно, как описано, например, [здесь](https://www.c-sharpcorner.com/article/word-automation-using-C-Sharp/).
 
 ## Важно!
 
