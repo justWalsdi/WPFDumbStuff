@@ -1,16 +1,17 @@
 # Лабораторная работа #6
 
+# **Обновление 07.05.2022**
+
+- Был предоставлен иной код функции Rachet3.
+- Добавлен файл [ProdMatSort.txt](./../Resources/ProdMatSort.txt)
+
 ## Требования
 
 - `.NET Framework 4.8`
 
 - `Visual Studio 2022 Community Edition`
 
-- Файлы [ProdAssort.txt](./../Resources/ProdAssort.txt), [ProdRecept.txt](./../Resources/ProdRecept.txt), [ProdSyrie.txt](./../Resources/ProdSyrie.txt), [ProdOborudRezim.txt](./../Resources/ProdOborudRezim.txt) из [Lab_04](./../Lab_04/)
-
-## ВАЖНО!
-
-Код преподавателем не был предоставлен, я не знаю какая там должна быть описана логика, поэтому предоставлен вариант с подгонкой под скриншоты из файлов лабораторной работы.
+- Файлы [ProdAssort.txt](./../Resources/ProdAssort.txt), [ProdRecept.txt](./../Resources/ProdRecept.txt), [ProdSyrie.txt](./../Resources/ProdSyrie.txt), [ProdOborudRezim.txt](./../Resources/ProdOborudRezim.txt) из [Lab_04](./../Lab_04/), [ProdMatSort.txt](./../Resources/ProdMatSort.txt)
 
 ## Копирование
 

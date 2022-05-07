@@ -13,10 +13,7 @@ namespace Lab_06
     /// </summary>
     public partial class Page3 : Page
     {
-        public Page3()
-        {
-            InitializeComponent();
-        }
+        public Page3() => InitializeComponent();
         public void Raschet1(object sender, RoutedEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
@@ -243,20 +240,171 @@ namespace Lab_06
             dgSyrie.ItemsSource = prods;
             MessageBox.Show(" Расчет окончен! ");
         }
-        //unverified code. Example was not present.
-        public void Raschet3(object sender, RoutedEventArgs e) 
+        private void Raschet3(object sender, RoutedEventArgs e)
         {
+            //Расчет склада вспомогательных материалов и тары
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+
+            //читаем файл ассортимент и определяем число продуктов
+            string FileName = @"D:\Projects\visualstudio_source\Resources\ProdAssort.txt";
+            string[] SortArray = new string[10];
+            string[] Prod = new string[10];
+            string[] SortName = new string[10];
+
+            int KolProd = 0;
+
+            //читаем расход материалов кг на тонну продукции
+            using (StreamReader sr = new StreamReader(FileName))
+                while (!sr.EndOfStream)
+                {
+                    SortArray = sr.ReadLine().Split(',');
+                    Prod[KolProd] = SortArray[0];
+                    SortName[KolProd] = SortArray[1];
+                    KolProd++;
+                }
+            //открываем файл-матрицу материал-продукт и создаем массив
+            string[] Mater = new string[10];
+            FileName = @"D:\Projects\visualstudio_source\Resources\ProdMatSort.txt";
+            double[,] Rashod = new double[100, 10];
+
+            int KolMat = 0;
+
+            //читаем расход материалов кг на тонну продукции
+            using (StreamReader sr = new StreamReader(FileName))
+                while (!sr.EndOfStream)
+                {
+                    SortArray = sr.ReadLine().Split(',');
+
+                    Mater[KolMat] = SortArray[0];
+                    for (int j = 0; j < KolProd; j++)
+                    {
+                        tbKolSyrie.Text = SortArray[j + 1];
+                        if (SortArray[j + 1] == "")
+                            Rashod[KolMat, j] = 0;
+                        else
+                            Rashod[KolMat, j] = Double.Parse(SortArray[j + 1]);
+
+                    }
+                    KolMat++;
+                }
+            tbKolSyrie.Text = Convert.ToString(KolMat);
+
+            //открываем файл с характеристикой вспомогательных материалов и формируем массив
+            int[] MatSrokHran = new int[100];
+            int[] MatNagruzka = new int[100];
+
+            FileName = @"D:\Projects\visualstudio_source\Resources\ProdMat.txt";
+            using (StreamReader sr = new StreamReader(FileName))
+            {
+                int i = 0;
+                while (!sr.EndOfStream)
+                {
+                    SortArray = sr.ReadLine().Split(',');
+                    MatSrokHran[i] = Convert.ToInt32(SortArray[1]);
+                    MatNagruzka[i] = Convert.ToInt32(SortArray[2]);
+                    i++;
+                }
+            }
+
+            //открываем файл с режимом работы и формируем массив режима работы
+            string[] Sort = new string[10];
+            int[] KolRab = new int[10];
+            int[] KolSmena = new int[10];
+            double[] TimeSmena = new double[10];
+
+            KolProd = 0;
+            FileName = @"D:\Projects\visualstudio_source\Resources\ProdOborudRezim.txt";
+            using (StreamReader sr = new StreamReader(FileName))
+                while (!sr.EndOfStream)
+                {
+                    SortArray = sr.ReadLine().Split(',');
+                    Sort[KolProd] = SortArray[0];
+                    KolRab[KolProd] = Convert.ToInt32(SortArray[5]);
+                    KolSmena[KolProd] = Convert.ToInt32(SortArray[6]);
+                    TimeSmena[KolProd] = Convert.ToDouble(SortArray[7]);
+
+                    KolProd++;
+                }
+
+            tbKolProd.Text = Convert.ToString(KolProd);
+
+            // Читаем файл суточного выпуска
+            double[] SutVypusk = new double[10];
+            using (StreamReader sr = new StreamReader(@"D:\Projects\visualstudio_source\Resources\ProdSutVypusk.txt"))
+            {
+                int i = 0;
+                while (!sr.EndOfStream)
+                {
+                    SortArray = sr.ReadLine().Split(',');
+                    Sort[i] = SortArray[0];
+                    SutVypusk[i] = Double.Parse(SortArray[1]);
+
+                    i++;
+                }
+            }
+
+
+            //расчет площади склада сырья
+            double[] Plo = new double[100];
+            for (int i = 0; i < KolMat; i++)  //по материалам
+            {
+                double sum1 = 0;
+                for (int j = 0; j < KolProd; j++) //по продуктам
+                {
+                    if (Mater[i] == "Гофрокартон")
+                        sum1 += SutVypusk[j] * 1.0 / Rashod[i, j] * MatSrokHran[i] / MatNagruzka[i];
+                    else if (Mater[i] == "Футляры" || Mater[i] == "Картон коробочный")
+                    {
+                        if (Rashod[i, j] != 0)
+                            sum1 += SutVypusk[j] * 0.03 / Rashod[i, j] * MatSrokHran[i] / MatNagruzka[i]; 
+                    }
+                    else
+                    {
+                        sum1 += Rashod[i, j] / 1000 * SutVypusk[j] * MatSrokHran[i] / MatNagruzka[i];
+                        if (i == 0 & j == 6)
+                        {
+                            // ?
+                        }
+                    }
+                }
+                Plo[i] = Math.Round(sum1, 1);
+                // срок хранения и нагрузка на площадь другие
+            }
+
+            // Записать файл 
+            using (StreamWriter writer = new StreamWriter(@"D:\Projects\visualstudio_source\Resources\ProdPloMat.txt"))
+            {
+                double sum2 = 0;
+                for (int i = 0; i < KolMat; i++)
+                {
+                    sum2 += Plo[i];
+                    writer.WriteLine(Mater[i] + "," + Convert.ToString(Plo[i]));
+                }
+                writer.WriteLine("Итого: " + sum2);
+            }
+
+            // Записать файл 
+            using (StreamWriter writer = new StreamWriter(@"D:\Projects\visualstudio_source\Resources\ProdPloMatNew.txt"))
+            {
+                double sum2 = 0;
+                for (int i = 0; i < KolMat; i++)
+                {
+                    double PodlezitHran = SutVypusk[i] * MatSrokHran[i];
+                    sum2 += Plo[i];
+                    writer.WriteLine(Mater[i] + "," + SutVypusk[i] + "," + PodlezitHran + "," + MatSrokHran[i] + "," + MatNagruzka[i] + "," + Convert.ToString(Plo[i]));
+                }
+                writer.WriteLine("Итого: " + sum2);
+            }
+
+            //заполняем таблицу на экране
             List<ProdPlo> prods = new List<ProdPlo>();
-            prods.Add(new ProdPlo() { Prod = "М1", Plo = 6.6 });
-            prods.Add(new ProdPlo() { Prod = "М2", Plo = 8.2 });
-            prods.Add(new ProdPlo() { Prod = "М3", Plo = 1.5 });
-            prods.Add(new ProdPlo() { Prod = "М4", Plo = 1.5 });
-            prods.Add(new ProdPlo() { Prod = "М5", Plo = 1.9 });
-            prods.Add(new ProdPlo() { Prod = "М6", Plo = 1.1 });
-            prods.Add(new ProdPlo() { Prod = "М7", Plo = 3.8 });
-            prods.Add(new ProdPlo() { Prod = "М8", Plo = 1.5 });
+
             double sum = 0;
-            foreach (ProdPlo element in prods) sum += element.Plo;
+            for (int i = 0; i < KolMat; i++)
+            {
+                prods.Add(new ProdPlo() { Prod = Mater[i], Plo = Math.Round(Plo[i], 1) });
+                sum += Plo[i];
+            }
             prods.Add(new ProdPlo() { Prod = "Итого:", Plo = Math.Round(sum, 1) });
             dgSyrie.ItemsSource = prods;
             MessageBox.Show(" Расчет окончен! ");
