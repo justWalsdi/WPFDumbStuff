@@ -1,1 +1,7 @@
+# my files
 Resources/not_resources/
+# vs automaticly created files
+.vs
+# compiled executables 
+bin
+obj
