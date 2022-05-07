@@ -13,10 +13,7 @@ namespace Lab_05
     /// </summary>
     public partial class Page3 : Page
     {
-        public Page3()
-        {
-            InitializeComponent();
-        }
+        public Page3() => InitializeComponent();
         public void Raschet1(object sender, RoutedEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
@@ -40,7 +37,6 @@ namespace Lab_05
             int KolSyrie = 0;
             //читаем расход сырья кг на тонну продукции
             using (StreamReader sr = new StreamReader(FileName))
-            {
                 while (!sr.EndOfStream)
                 {
                     SortArray = sr.ReadLine().Split(',');
@@ -49,7 +45,6 @@ namespace Lab_05
                         Rashod[KolSyrie, j] = (SortArray[j] == "" || SortArray[j] == " ") ? Rashod[KolSyrie, j] = 0.0 : Convert.ToDouble(SortArray[j]);
                     KolSyrie++;
                 }
-            }
             tbKolSyrie.Text = Convert.ToString(KolSyrie);
 
 
@@ -84,7 +79,6 @@ namespace Lab_05
             KolProd = 0;
             FileName = @"D:\Projects\visualstudio_source\Resources\ProdOborudRezim.txt";
             using (StreamReader sr = new StreamReader(FileName))
-            {
                 while (!sr.EndOfStream)
                 {
                     SortArray = sr.ReadLine().Split(',');
@@ -99,7 +93,6 @@ namespace Lab_05
                     TimeSmena[KolProd] = Convert.ToDouble(SortArray[7]);
                     KolProd++;
                 }
-            }
             tbKolProd.Text = Convert.ToString(KolProd);
 
             //вычисляем суточный выпуск для каждого сорта кг в смену
@@ -115,7 +108,6 @@ namespace Lab_05
 
 
             //расчет площади склада сырья
-
             double[] Plo = new double[100];
             for (int i = 0; i < KolSyrie; i++)
             {
