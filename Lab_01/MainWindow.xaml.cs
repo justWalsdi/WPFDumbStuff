@@ -39,15 +39,12 @@ namespace Lab_01
                     MessageBox.Show("Такого сорта нет");
                     break;
             }
-            string[] RecArray = new string[20];
             List<Recept> sostav = new List<Recept>();
 
             using (StreamReader sr = new StreamReader(FileName))
-            {
-
                 while (!sr.EndOfStream)
                 {
-                    RecArray = sr.ReadLine().Split(',');
+                    string[] RecArray = sr.ReadLine().Split(',');
                     try
                     {
                         sostav.Add(new Recept() { NameSyrie = RecArray[0], Rashod = Convert.ToDouble(RecArray[1]) });
@@ -57,8 +54,8 @@ namespace Lab_01
                         MessageBox.Show("Ошибка чтения файла. Ошибка: " + exception);
                     }
                 }
-                dgTable.ItemsSource = sostav;
-            }
+                
+            dgTable.ItemsSource = sostav;
         }
     }
 }
