@@ -9,11 +9,11 @@
     <Grid>
         <Button Content="Открыть таблицу" Click="OpenRecept" HorizontalAlignment="Left" Margin="95,38,0,0" VerticalAlignment="Top" Width="111"/>
         <ComboBox x:Name="cmbSort"  HorizontalAlignment="Left" Margin="225,38,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem IsSelected="True" Content="П1" HorizontalAlignment="Left"/>
-            <ComboBoxItem Content="П2" HorizontalAlignment="Left"/>
-            <ComboBoxItem Content="П3" HorizontalAlignment="Left"/>
-            <ComboBoxItem Content="П4" HorizontalAlignment="Left"/>
-            <ComboBoxItem Content="П5" HorizontalAlignment="Left"/>
+            <ComboBoxItem IsSelected="True" Content="Фирменный" HorizontalAlignment="Left"/>
+            <ComboBoxItem Content="Бисквитно-фруктовый" HorizontalAlignment="Left"/>
+            <ComboBoxItem Content="Киевский" HorizontalAlignment="Left"/>
+            <ComboBoxItem Content="Бисквитный" HorizontalAlignment="Left"/>
+            <ComboBoxItem Content="С творожным кремом" HorizontalAlignment="Left"/>
         </ComboBox>
         <DataGrid x:Name="dgTable"  HorizontalAlignment="Left" Height="281" Margin="94,78,0,0" VerticalAlignment="Top" Width="484"/>
 

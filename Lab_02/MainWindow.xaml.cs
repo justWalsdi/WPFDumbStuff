@@ -20,19 +20,19 @@ namespace Lab_01
         {
             switch (cmbSort.Text)
             {
-                case "П1":
+                case "Фирменный":
                     FileName = @"D:\Projects\visualstudio_source\Resources\prod1.txt";
                     break;
-                case "П2":
+                case "Бисквитно-фруктовый":
                     FileName = @"D:\Projects\visualstudio_source\Resources\prod2.txt";
                     break;
-                case "П3":
+                case "Киевский":
                     FileName = @"D:\Projects\visualstudio_source\Resources\prod3.txt";
                     break;
-                case "П4":
+                case "Бисквитный":
                     FileName = @"D:\Projects\visualstudio_source\Resources\prod4.txt";
                     break;
-                case "П5":
+                case "С творожным кремом":
                     FileName = @"D:\Projects\visualstudio_source\Resources\prod5.txt";
                     break;
                 default:

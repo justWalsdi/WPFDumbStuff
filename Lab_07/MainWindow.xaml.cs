@@ -48,7 +48,7 @@ namespace Lab_07
             {
                 foreach (CsvData data in Data) pushToSQL(data);
                 MessageBox.Show("Данные отправлены!");
-            }
+             }
 
             //MessageBox.Show("Data send to Database!");
         }

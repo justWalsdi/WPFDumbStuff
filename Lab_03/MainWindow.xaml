@@ -11,11 +11,11 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Сырье" Width="120" DisplayMemberBinding="{Binding NameSyrie}" />
-                    <GridViewColumn Header="П1" Width="110" DisplayMemberBinding="{Binding Rashod1}" />
-                    <GridViewColumn Header="П2" Width="160" DisplayMemberBinding="{Binding Rashod2}" />
-                    <GridViewColumn Header="П3" Width="100" DisplayMemberBinding="{Binding Rashod3}" />
-                    <GridViewColumn Header="П4" Width="100" DisplayMemberBinding="{Binding Rashod4}" />
-                    <GridViewColumn Header="П5" Width="150" DisplayMemberBinding="{Binding Rashod5}" />
+                    <GridViewColumn Header="Фирменный" Width="110" DisplayMemberBinding="{Binding Rashod1}" />
+                    <GridViewColumn Header="Бисквитно-фруктовый" Width="160" DisplayMemberBinding="{Binding Rashod2}" />
+                    <GridViewColumn Header="Киевский" Width="100" DisplayMemberBinding="{Binding Rashod3}" />
+                    <GridViewColumn Header="Бисквитный" Width="100" DisplayMemberBinding="{Binding Rashod4}" />
+                    <GridViewColumn Header="С творожным кремом" Width="150" DisplayMemberBinding="{Binding Rashod5}" />                  
                 </GridView>
             </ListView.View>
         </ListView>

@@ -16,13 +16,13 @@ namespace Lab_10
         private void Open(object sender, RoutedEventArgs e)
         {
             var datasource = @"HOME-PC\SQLEXPRESS"; //Your Server name
-            var database = "Lab_10";                //Your DB
+            var database = "Lab_07";                //Your DB
             string ConnectionString = @"Data Source=" + datasource + ";Initial Catalog=" + database + ";Integrated Security=True";
 
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT NameSyrie, SV, SrokHran FROM Chocolad;", connection);
+                SqlCommand command = new SqlCommand("SELECT NameSyrie, SV, SrokHran FROM Sysie;", connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 

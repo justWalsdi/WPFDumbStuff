@@ -1,0 +1,22 @@
++ Lab_01: prod1.txt, prod2.txt, prod3.txt, prod4.txt, prod5.txt
++ Lab_02: None -> ProdRecept.txt
++ Lab_03: ProdRecept.txt
++ Lab_04, Lab_05, + Lab_06: 
+ProdRecept.txt, ProdSyrie.txt, ProdAssort.txt, ProdOborudRezim.txt -> ProdSutVypusk.txt, ProdPloSyrie.txt
++ Lab_07-8: ProdSyrieSQL.txt
++ Lab_09: Pran3.txt
+Lab_10
+
+
+
+
+
+
+
+
+
+Фирменный
+Бисквитно-фруктовый
+Киевский
+Бисквитный
+С творожным кремом
