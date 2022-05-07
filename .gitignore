@@ -1,2 +1,4 @@
 Resources/not_resources/
 .vs
+bin
+obj
