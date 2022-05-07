@@ -10,14 +10,11 @@ namespace Lab_01
     /// </summary>
     public partial class MainWindow : Window
     {
-        String FileName;
 
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
         private void OpenRecept(object sender, RoutedEventArgs e)
         {
+            string FileName = "";
             switch (cmbSort.Text)
             {
                 case "П1":
@@ -54,7 +51,6 @@ namespace Lab_01
                         MessageBox.Show("Ошибка чтения файла. Ошибка: " + exception);
                     }
                 }
-                
             dgTable.ItemsSource = sostav;
         }
     }
