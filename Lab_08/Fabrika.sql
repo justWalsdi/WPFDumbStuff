@@ -10,7 +10,7 @@ ELSE
 	BEGIN
 		print N'Table is already present'
 	END
-
+GO
 
 IF ((SELECT COUNT(*) FROM Recipe) = 0)
 	BEGIN
@@ -27,5 +27,7 @@ ELSE
 	BEGIN
 		print N'Unauthorized data is present. Data is removed, try again.'
 	END
+GO
 
 DELETE FROM Recipe
+GO
