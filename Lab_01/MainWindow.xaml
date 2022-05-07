@@ -16,6 +16,5 @@
             <ComboBoxItem Content="П5" HorizontalAlignment="Left"/>
         </ComboBox>
         <DataGrid x:Name="dgTable"  HorizontalAlignment="Left" Height="281" Margin="94,78,0,0" VerticalAlignment="Top" Width="484"/>
-
     </Grid>
 </Window>
