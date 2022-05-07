@@ -36,11 +36,10 @@ namespace Lab_06
             string[] Syrie = new string[100];
             double[,] Rashod = new double[100, 10];
 
-
+            
             int KolSyrie = 0;
             //читаем расход сырья кг на тонну продукции
             using (StreamReader sr = new StreamReader(FileName))
-            {
                 while (!sr.EndOfStream)
                 {
                     SortArray = sr.ReadLine().Split(',');
@@ -49,7 +48,6 @@ namespace Lab_06
                         Rashod[KolSyrie, j] = (SortArray[j] == "" || SortArray[j] == " ") ? Rashod[KolSyrie, j] = 0.0 : Convert.ToDouble(SortArray[j]);
                     KolSyrie++;
                 }
-            }
             tbKolSyrie.Text = Convert.ToString(KolSyrie);
 
 
@@ -73,18 +71,17 @@ namespace Lab_06
 
             //открываем файл с режимом работы и формируем массив режима работы
             //открываем файл с оборудованием и формируем массив производительности кг в час
-            int[] Proizvod = new int[10];
-            double[] KoefIsp = new double[10];
-            int[] KolOborud = new int[10];
-            string[] Sort = new string[10];
-            int[] KolRab = new int[10];
-            int[] KolSmena = new int[10];
+            int   [] Proizvod  = new int   [10];
+            double[] KoefIsp   = new double[10];
+            int   [] KolOborud = new int   [10];
+            string[] Sort      = new string[10];
+            int   [] KolRab    = new int   [10];
+            int   [] KolSmena  = new int   [10];
             double[] TimeSmena = new double[10];
 
             KolProd = 0;
             FileName = @"D:\Projects\visualstudio_source\Resources\ProdOborudRezim.txt";
             using (StreamReader sr = new StreamReader(FileName))
-            {
                 while (!sr.EndOfStream)
                 {
                     SortArray = sr.ReadLine().Split(',');
@@ -99,7 +96,6 @@ namespace Lab_06
                     TimeSmena[KolProd] = Convert.ToDouble(SortArray[7]);
                     KolProd++;
                 }
-            }
             tbKolProd.Text = Convert.ToString(KolProd);
 
             //вычисляем суточный выпуск для каждого сорта кг в смену
@@ -115,7 +111,6 @@ namespace Lab_06
 
 
             //расчет площади склада сырья
-
             double[] Plo = new double[100];
             for (int i = 0; i < KolSyrie; i++)
             {
