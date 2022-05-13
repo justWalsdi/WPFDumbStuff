@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Diagnostics;
 using System.Data.SqlClient;
 
 namespace Lab_10
@@ -29,10 +30,10 @@ namespace Lab_10
 
                 if (reader.HasRows)
                     while (reader.Read())
-                        Console.WriteLine("{0}\t{1}\t{2}", reader.GetString(0), reader.GetDouble(1), reader.GetInt32(2));
+                        Trace.WriteLine($"{reader.GetString(0)}\t{reader.GetDouble(1)}\t{reader.GetInt32(2)}");
 
                 else
-                    Console.WriteLine("No rows found.");
+                    Trace.WriteLine("No rows found.");
                 reader.Close();
             }
             MessageBox.Show("Завершено. Результат см. в консоли.");
