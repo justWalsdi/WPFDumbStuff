@@ -24,7 +24,7 @@ namespace Lab_09
         public void startingMethod()
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-            string FileName = @"D:\Projects\visualstudio_source\Resources\Pran3.txt";
+            string FileName = @".\..\..\..\Resources\Pran3.txt";
             
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)

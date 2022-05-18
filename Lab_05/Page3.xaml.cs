@@ -19,7 +19,7 @@ namespace Lab_05
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
             //читаем файл ассортимент и определяем число продуктов
-            string FileName = @"D:\Projects\visualstudio_source\Resources\ProdAssort.txt";
+            string FileName = @".\..\..\..\Resources\ProdAssort.txt";
             string[] SortArray = new string[10];
             string[] Prod = new string[10];
 
@@ -29,7 +29,7 @@ namespace Lab_05
                     Prod[KolProd++] = sr.ReadLine().Split(',')[0];
 
             //открываем файл-матрицу сырье-продукт и создаем массив суточный выпуск
-            FileName = @"D:\Projects\visualstudio_source\Resources\ProdRecept.txt";
+            FileName = @".\..\..\..\Resources\ProdRecept.txt";
             string[] Syrie = new string[100];
             double[,] Rashod = new double[100, 10];
 
@@ -52,7 +52,7 @@ namespace Lab_05
             int[] SyrieSrokHran = new int[100];
             int[] SyrieNagruzka = new int[100];
 
-            FileName = @"D:\Projects\visualstudio_source\Resources\ProdSyrie.txt";
+            FileName = @".\..\..\..\Resources\ProdSyrie.txt";
             using (StreamReader sr = new StreamReader(FileName))
             {
                 int i = 0;
@@ -77,7 +77,7 @@ namespace Lab_05
             double[] TimeSmena = new double[10];
 
             KolProd = 0;
-            FileName = @"D:\Projects\visualstudio_source\Resources\ProdOborudRezim.txt";
+            FileName = @".\..\..\..\Resources\ProdOborudRezim.txt";
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)
                 {
@@ -102,7 +102,7 @@ namespace Lab_05
 
 
             // Записать файл суточного выпуска
-            using (StreamWriter writer = new StreamWriter(@"D:\Projects\visualstudio_source\Resources\ProdSutVypusk.txt"))
+            using (StreamWriter writer = new StreamWriter(@".\..\..\..\Resources\ProdSutVypusk.txt"))
                 for (int i = 0; i < KolProd; i++)
                     writer.WriteLine(Sort[i] + "," + SutVypusk[i]);
 
@@ -120,7 +120,7 @@ namespace Lab_05
             }
 
             // Записать файл 
-            using (StreamWriter writer = new StreamWriter(@"D:\Projects\visualstudio_source\Resources\ProdPloSyrie.txt"))
+            using (StreamWriter writer = new StreamWriter(@".\..\..\..\Resources\ProdPloSyrie.txt"))
             {
                 double sum = 0;
                 for (int i = 0; i < KolSyrie; i++)
@@ -156,7 +156,7 @@ namespace Lab_05
             string[] Sort = new string[10];
 
             //читаем файл ассортимент и определяем число продуктов
-            FileName = @"D:\Projects\visualstudio_source\Resources\ProdAssort.txt";
+            FileName = @".\..\..\..\Resources\ProdAssort.txt";
             string[] Prod = new string[10];
             string[] SortName = new string[10];
             int[] SrokHran = new int[10];
@@ -180,7 +180,7 @@ namespace Lab_05
             double[] KoefIsp = new double[10];
             int[] KolOborud = new int[10];
 
-            FileName = @"D:\Projects\visualstudio_source\Resources\ProdOborudRezim.txt";
+            FileName = @".\..\..\..\Resources\ProdOborudRezim.txt";
             KolProd = 0;
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)
@@ -200,7 +200,7 @@ namespace Lab_05
             // Читаем файл суточного выпуска
             double[] SutVypusk = new double[10];
 
-            using (StreamReader sr = new StreamReader(@"D:\Projects\visualstudio_source\Resources\ProdSutVypusk.txt"))
+            using (StreamReader sr = new StreamReader(@".\..\..\..\Resources\ProdSutVypusk.txt"))
             {
                 int j = 0;
                 while (!sr.EndOfStream)
@@ -219,7 +219,7 @@ namespace Lab_05
 
             // Записать файл 
             double sum = 0;
-            using (StreamWriter writer = new StreamWriter(@"D:\Projects\visualstudio_source\Resources\ProdPlo.txt"))
+            using (StreamWriter writer = new StreamWriter(@".\..\..\..\Resources\ProdPlo.txt"))
             {
                 for (int i = 0; i < KolProd; i++)
                 {

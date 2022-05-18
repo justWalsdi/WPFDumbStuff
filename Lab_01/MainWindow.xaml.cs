@@ -18,19 +18,19 @@ namespace Lab_01
             switch (cmbSort.Text)
             {
                 case "П1":
-                    FileName = @"D:\Projects\visualstudio_source\Resources\prod1.txt";
+                    FileName = @".\..\..\..\Resources\prod1.txt";
                     break;
                 case "П2":
-                    FileName = @"D:\Projects\visualstudio_source\Resources\prod2.txt";
+                    FileName = @".\..\..\..\Resources\prod2.txt";
                     break;
                 case "П3":
-                    FileName = @"D:\Projects\visualstudio_source\Resources\prod3.txt";
+                    FileName = @".\..\..\..\Resources\prod3.txt";
                     break;
                 case "П4":
-                    FileName = @"D:\Projects\visualstudio_source\Resources\prod4.txt";
+                    FileName = @".\..\..\..\Resources\prod4.txt";
                     break;
                 case "П5":
-                    FileName = @"D:\Projects\visualstudio_source\Resources\prod5.txt";
+                    FileName = @".\..\..\..\Resources\prod5.txt";
                     break;
                 default:
                     MessageBox.Show("Такого сорта нет");
