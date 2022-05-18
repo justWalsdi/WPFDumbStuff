@@ -17,19 +17,19 @@ namespace Lab_01
             switch (cmbSort.Text)
             {
                 case "П1":
-                    FileName = @".\..\..\..\Resources\prod1.txt";
+                    FileName = @".\..\..\..\..\Resources\prod1.txt";
                     break;
                 case "П2":
-                    FileName = @".\..\..\..\Resources\prod2.txt";
+                    FileName = @".\..\..\..\..\Resources\prod2.txt";
                     break;
                 case "П3":
-                    FileName = @".\..\..\..\Resources\prod3.txt";
+                    FileName = @".\..\..\..\..\Resources\prod3.txt";
                     break;
                 case "П4":
-                    FileName = @".\..\..\..\Resources\prod4.txt";
+                    FileName = @".\..\..\..\..\Resources\prod4.txt";
                     break;
                 case "П5":
-                    FileName = @".\..\..\..\Resources\prod5.txt";
+                    FileName = @".\..\..\..\..\Resources\prod5.txt";
                     break;
                 default:
                     MessageBox.Show("Такого сорта нет");
@@ -58,7 +58,7 @@ namespace Lab_01
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             ////читаем содержание файла
-            string FileName = @".\..\..\..\Resources\prod1.txt";
+            string FileName = @".\..\..\..\..\Resources\prod1.txt";
             string[] Srie = new string[100];
             double[] Rshd = new double[100];
             int KolRec = 0;
@@ -84,7 +84,7 @@ namespace Lab_01
 
             int KolRec1 = 0;
             List<Recept> recept1 = new List<Recept>();
-            FileName = @".\..\..\..\Resources\prod2.txt";
+            FileName = @".\..\..\..\..\Resources\prod2.txt";
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)
                 {
@@ -119,7 +119,7 @@ namespace Lab_01
 
             int KolRec2 = 0;
             List<Recept> recept2 = new List<Recept>();
-            FileName = @".\..\..\..\Resources\prod3.txt";
+            FileName = @".\..\..\..\..\Resources\prod3.txt";
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)
                 {
@@ -155,7 +155,7 @@ namespace Lab_01
 
             int KolRec3 = 0;
             List<Recept> recept3 = new List<Recept>();
-            FileName = @".\..\..\..\Resources\prod4.txt";
+            FileName = @".\..\..\..\..\Resources\prod4.txt";
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)
                 {
@@ -191,7 +191,7 @@ namespace Lab_01
 
             int KolRec4 = 0;
             List<Recept> recept4 = new List<Recept>();
-            FileName = @".\..\..\..\Resources\prod5.txt";
+            FileName = @".\..\..\..\..\Resources\prod5.txt";
             using (StreamReader sr = new StreamReader(FileName))
                 while (!sr.EndOfStream)
                 {
@@ -226,7 +226,7 @@ namespace Lab_01
             MessageBox.Show("Выполнен пятый этап");
 
             // добавление в файл
-            using (StreamWriter writer = new StreamWriter(@".\..\..\..\Resources\ProdRecept.txt"))
+            using (StreamWriter writer = new StreamWriter(@".\..\..\..\..\Resources\ProdRecept.txt"))
             {
                 for (int i = 0; i < KolRec + KolNew; i++)
                     writer.WriteLine(Syrie[i] + "," + Rashod[i, 0] + "," + Rashod[i, 1] + "," + Rashod[i, 2] + "," + Rashod[i, 3] + "," + Rashod[i, 4]);
@@ -237,7 +237,7 @@ namespace Lab_01
             //чтение матрицы
             List<Matrix> matr = new List<Matrix>();
 
-            using (StreamReader sr = new StreamReader(@".\..\..\..\Resources\ProdRecept.txt"))
+            using (StreamReader sr = new StreamReader(@".\..\..\..\..\Resources\ProdRecept.txt"))
                 while (!sr.EndOfStream)
                 {
                     string[] RecArray = sr.ReadLine().Split(',');

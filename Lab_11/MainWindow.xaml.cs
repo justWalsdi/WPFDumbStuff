@@ -21,7 +21,7 @@ namespace Lab_11
         }
         private void OpenTable(object sender, RoutedEventArgs e)
         {
-            string FileName = @".\..\..\..\Resources\ProdTable2.txt";
+            string FileName = @".\..\..\..\..\Resources\ProdTable2.txt";
             string[] TabArray;
 
             List<Class1> sostav = new List<Class1>();

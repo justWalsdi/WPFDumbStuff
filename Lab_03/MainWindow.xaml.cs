@@ -17,7 +17,7 @@ namespace Lab_03
         {
             //чтение матрицы
             List<Matrix> matr = new List<Matrix>();
-            using (StreamReader sr = new StreamReader(@".\..\..\..\Resources\ProdRecept.txt"))
+            using (StreamReader sr = new StreamReader(@".\..\..\..\..\Resources\ProdRecept.txt"))
             {
                 while (!sr.EndOfStream)
                 {
@@ -31,7 +31,7 @@ namespace Lab_03
                 view.SortDescriptions.Add(new SortDescription("NameSyrie", ListSortDirection.Ascending));
             }
 
-            using (StreamWriter writer = new StreamWriter(@".\..\..\..\Resources\ProdReceptNew.txt"))
+            using (StreamWriter writer = new StreamWriter(@".\..\..\..\..\Resources\ProdReceptNew.txt"))
                 for (int i = 0; i < matr.Count; i++)
                     writer.WriteLine(matr[i].NameSyrie + "," + matr[i].Rashod1 + "," + matr[i].Rashod2 + "," + matr[i].Rashod3 + "," + matr[i].Rashod4 + "," + matr[i].Rashod5);
             MessageBox.Show("Матрица выведена в файл");
